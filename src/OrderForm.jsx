@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import jsPDF from "jspdf";
 import Confetti from "react-confetti";
-import emailjs from "@/emailjs-com";
+import emailjs from "emailjs-com";
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
