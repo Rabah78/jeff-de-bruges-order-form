@@ -4,9 +4,12 @@ import jsPDF from "jspdf";
 import Confetti from "react-confetti";
 
 // Configurer Airtable API
-const base = new Airtable({ apiKey: "YOUR_AIRTABLE_API_KEY" }).base(
-  "YOUR_AIRTABLE_BASE_ID",
-);
+//const base = new Airtable({ apiKey: "YOUR_AIRTABLE_API_KEY" }).base(
+//  "YOUR_AIRTABLE_BASE_ID",
+//);
+import Airtable from 'airtable';
+
+const base = new Airtable({ apiKey: 'YOUR_AIRTABLE_PERSONAL_ACCESS_TOKEN' }).base('YOUR_AIRTABLE_BASE_ID');
 
 const products = [
   {
