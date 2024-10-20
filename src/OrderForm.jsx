@@ -9,7 +9,9 @@ import Confetti from "react-confetti";
 //);
 import Airtable from 'airtable';
 
-const base = new Airtable({ apiKey: 'YOUR_AIRTABLE_PERSONAL_ACCESS_TOKEN' }).base('YOUR_AIRTABLE_BASE_ID');
+const base = new Airtable({
+  apiKey: import.meta.env.VITE_AIRTABLE_TOKEN
+}).base(import.meta.env.VITE_AIRTABLE_BASE_ID);
 
 const products = [
   {
