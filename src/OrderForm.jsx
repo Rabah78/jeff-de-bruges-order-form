@@ -9,7 +9,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Checkbox } from '@/components/ui/checkbox';
 import Airtable from 'airtable';
 
-// Configurer Airtable API 
+// Configurer Airtable API
 const base = new Airtable({
   apiKey: import.meta.env.VITE_AIRTABLE_TOKEN
 }).base(import.meta.env.VITE_AIRTABLE_BASE_ID);
@@ -306,26 +306,3 @@ const OrderForm = () => {
               id="terms"
               checked={termsAccepted}
               onCheckedChange={setTermsAccepted}
-            />
-            <label htmlFor="terms" className="ml-2">
-              Oui, j'ai pris connaissance des conditions générales de vente figurant en annexe.
-            </label>
-          </div>
-
-          <p className="mt-4 text-sm">
-            **Les prix barrés sont les prix de vente TTC maximum en boutique.<br />
-            ***Prix de vente TTC maximum. Photos non contractuelles.
-          </p>
-          <Button type="submit" onClick={handleSubmit} className="mt-4">Passer la commande</Button>
-        </form>
-      </CardContent>
-      <CardFooter className="flex flex-col items-start">
-        <p className="mt-4 text-xs">
-          Politique des données personnelles : les informations collectées via le bon de commande font l'objet d'un traitement automatisé et/ou manuel ayant pour finalité la gestion de votre commande. Le responsable dudit traitement, est la société dont les coordonnées figurent dans l'encadré en haut du bon de commande. Vous disposez de droits quant à ces données et leur traitement qui vous sont détaillés sur le document joint au bon de commande.
-        </p>
-      </CardFooter>
-    </Card>
-  );
-};
-
-export default OrderForm;
