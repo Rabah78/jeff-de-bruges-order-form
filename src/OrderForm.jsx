@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Airtable from "airtable";
 import jsPDF from "jspdf";
 import Confetti from "react-confetti";
 
