@@ -9,7 +9,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Checkbox } from '@/components/ui/checkbox';
 import Airtable from 'airtable';
 
-// Configurer Airtable API
+// Configurer Airtable API 
 const base = new Airtable({
   apiKey: import.meta.env.VITE_AIRTABLE_TOKEN
 }).base(import.meta.env.VITE_AIRTABLE_BASE_ID);
