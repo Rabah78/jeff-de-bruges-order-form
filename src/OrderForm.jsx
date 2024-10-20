@@ -303,6 +303,10 @@ const OrderForm = () => {
 
           <div className="mt-4">
             <Checkbox
-              id="terms"
-              checked={termsAccepted}
-              onCheckedChange={setTermsAccepted}
+  id="terms"
+  checked={termsAccepted}
+  onCheckedChange={setTermsAccepted}
+/>
+<label htmlFor="terms" className="ml-2">
+  Oui, j'ai pris connaissance des conditions générales de vente figurant en annexe.
+</label>
