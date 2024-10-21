@@ -1,4 +1,4 @@
-// src/components/ui/Input.jsx
+// src/components/ui/input.jsx
 import React from 'react';
 
 const Input = ({ className = "", ...props }) => (
@@ -6,4 +6,3 @@ const Input = ({ className = "", ...props }) => (
 );
 
 export default Input;
-
