@@ -1,13 +1,11 @@
-// src/components/ui/Card.jsx
+// src/components/ui/card.jsx
 import React from 'react';
 
-export const Card = ({ children, className = "", ...props }) => {
-  return (
-    <div className={`card p-4 shadow-md rounded-md bg-white ${className}`} {...props}>
-      {children}
-    </div>
-  );
-};
+export const Card = ({ children, className = "", ...props }) => (
+  <div className={`card p-4 shadow-md rounded-md bg-white ${className}`} {...props}>
+    {children}
+  </div>
+);
 
 export const CardHeader = ({ children, className = "", ...props }) => (
   <div className={`card-header ${className}`} {...props}>
@@ -27,5 +25,4 @@ export const CardFooter = ({ children, className = "", ...props }) => (
   </div>
 );
 
-export default Card;
-
+// No default export here, only named exports
