@@ -1,4 +1,4 @@
-// src/components/ui/Alert.jsx
+// src/components/ui/alert.jsx
 import React from 'react';
 
 export const Alert = ({ children, className = "", ...props }) => (
@@ -13,5 +13,4 @@ export const AlertDescription = ({ children, className = "", ...props }) => (
   </p>
 );
 
-export default Alert;
-
+// No default export here, only named exports
