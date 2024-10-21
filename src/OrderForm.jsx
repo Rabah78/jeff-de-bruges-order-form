@@ -181,7 +181,7 @@ const OrderForm = () => {
       <CardHeader className="text-center">
         <img src="/api/placeholder/200/100" alt="Logo Jeff de Bruges" className="mx-auto mb-4" />
         <h2 className="text-2xl font-bold">Jeff de Bruges</h2>
-        <p>Jeff de Bruges Plaisir - C.cial Auchan Aushopping Grand Plaisir</p>
+        <p className="text-lg">Jeff de Bruges Plaisir - C.cial Auchan Aushopping Grand Plaisir</p>
         <p>Chemin départemental 161</p>
         <p>78370 Plaisir</p>
         <p className="text-red-600 font-bold mt-4">Commande à retourner avant le : 08/11/2024</p>
@@ -194,6 +194,7 @@ const OrderForm = () => {
               placeholder="Raison sociale"
               value={clientInfo.companyName}
               onChange={handleClientInfoChange}
+              required
             />
             <Input
               name="contactName"
@@ -209,3 +210,124 @@ const OrderForm = () => {
               onChange={handleClientInfoChange}
               required
             />
+            <div className="flex space-x-4">
+              <Input
+                name="postalCode"
+                placeholder="Code postal"
+                value={clientInfo.postalCode}
+                onChange={handleClientInfoChange}
+                required
+              />
+              <Input
+                name="city"
+                placeholder="Ville"
+                value={clientInfo.city}
+                onChange={handleClientInfoChange}
+                required
+              />
+            </div>
+            <Input
+              name="phone"
+              placeholder="Téléphone"
+              value={clientInfo.phone}
+              onChange={handleClientInfoChange}
+              required
+            />
+            <Input
+              name="email"
+              type="email"
+              placeholder="Email"
+              value={clientInfo.email}
+              onChange={handleClientInfoChange}
+              required
+            />
+            <Input
+              name="siret"
+              placeholder="N° SIRET"
+              value={clientInfo.siret}
+              onChange={handleClientInfoChange}
+              required
+            />
+            <Input
+              name="tva"
+              placeholder="N° TVA intra"
+              value={clientInfo.tva}
+              onChange={handleClientInfoChange}
+            />
+            <div>
+              <label htmlFor="deliveryDate" className="block mb-2">Date de mise à disposition souhaitée :</label>
+              <Input
+                id="deliveryDate"
+                name="deliveryDate"
+                type="date"
+                value={clientInfo.deliveryDate}
+                onChange={handleClientInfoChange}
+                required
+              />
+            </div>
+          </div>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Produits</h3>
+          <div className="space-y-4">
+            {products.map(product => (
+              <div key={product.id} className="flex items-center justify-between border-b pb-2">
+                <div className="flex items-center">
+                  <img src={`/api/placeholder/50/50`} alt={product.name} className="mr-4" />
+                  <div>
+                    <p>{product.name}</p>
+                    <p>
+                      <span className="line-through mr-2">{product.oldPrice.toFixed(2)}€ TTC**</span>
+                      <span className="font-bold">{product.newPrice.toFixed(2)}€ TTC***</span>
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center">
+                  <Input
+                    type="number"
+                    min="0"
+                    value={orderItems[product.id] || ''}
+                    onChange={(e) => handleQuantityChange(product.id, e.target.value)}
+                    className="w-20 mr-4"
+                  />
+                  <span className="w-24 text-right">
+                    {calculateSubtotal(product.id, orderItems[product.id] || 0)}€ TTC
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 text-right">
+            <strong>Total: {calculateTotal()}€ TTC</strong>
+          </div>
+
+          <div className="mt-4">
+            <Checkbox
+              id="terms"
+              checked={termsAccepted}
+              onChange={() => setTermsAccepted(!termsAccepted)}
+            />
+            <label htmlFor="terms" className="ml-2">
+              Oui, j'ai pris connaissance des conditions générales de vente figurant en annexe.
+            </label>
+          </div>
+
+          <p className="mt-4 text-sm">
+            **Les prix barrés sont les prix de vente TTC maximum en boutique.<br />
+            ***Prix de vente TTC maximum. Photos non contractuelles.
+          </p>
+          <Button type="submit" className="mt-4">
+            Passer la commande
+          </Button>
+        </form>
+      </CardContent>
+      <CardFooter className="flex flex-col items-start">
+        <p className="mt-4 text-xs">
+          Politique des données personnelles : les informations collectées via le bon de commande font l'objet d'un traitement automatisé et/ou manuel ayant pour finalité la gestion de votre commande. Le responsable dudit traitement est la société dont les coordonnées figurent dans l'encadré en haut du bon de commande. Vous disposez de droits quant à ces données et leur traitement qui vous sont détaillés sur le document joint au bon de commande.
+        </p>
+      </CardFooter>
+    </Card>
+  );
+};
+
+export default OrderForm;
