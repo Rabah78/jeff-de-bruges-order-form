@@ -1,4 +1,4 @@
-// src/components/ui/Checkbox.jsx
+// src/components/ui/checkbox.jsx
 import React from 'react';
 
 const Checkbox = ({ className = "", ...props }) => (
@@ -6,4 +6,3 @@ const Checkbox = ({ className = "", ...props }) => (
 );
 
 export default Checkbox;
-
