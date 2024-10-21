@@ -1,4 +1,4 @@
-// src/components/ui/Button.jsx
+// src/components/ui/button.jsx
 import React from 'react';
 
 const Button = ({ children, className = "", ...props }) => (
@@ -8,4 +8,3 @@ const Button = ({ children, className = "", ...props }) => (
 );
 
 export default Button;
-
