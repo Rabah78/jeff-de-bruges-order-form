@@ -5,7 +5,7 @@ import emailjs from "emailjs-com";
 import Card, { CardHeader, CardContent, CardFooter } from '@/components/ui/card';
 import Input from '@/components/ui/input';
 import Button from '@/components/ui/button';
-import { Alert, AlertDescription } from '@/components/ui/alert';
+import Alert, { AlertDescription } from '@/components/ui/alert';
 import Checkbox from '@/components/ui/checkbox';
 import Airtable from 'airtable';
 
@@ -167,9 +167,9 @@ const OrderForm = () => {
 
   if (orderSubmitted) {
     return (
-      <div className="text-center">
+      <div>
         <Confetti />
-        <div className="mt-8 text-lg font-bold">
+        <div>
           Merci {clientInfo.contactName} pour votre commande ! Nous vous contacterons bientôt pour confirmer les détails.
         </div>
       </div>
@@ -177,8 +177,35 @@ const OrderForm = () => {
   }
 
   return (
-    <Card className="w-full max-w-4xl mx-auto bg-gradient-to-r from-blue-100 to-blue-50 border border-gray-300 p-8 shadow-xl">
-      <CardHeader className="text-center mb-6">
+    <Card className="w-full max-w-4xl mx-auto">
+      <CardHeader className="text-center">
         <img src="/api/placeholder/200/100" alt="Logo Jeff de Bruges" className="mx-auto mb-4" />
-        <h2 className="text-3xl font-bold text-blue-800">Jeff de Bruges</h2>
-        <p className="text-lg">Jeff de Bruges Plaisir
+        <h2 className="text-2xl font-bold">Jeff de Bruges</h2>
+        <p>Jeff de Bruges Plaisir - C.cial Auchan Aushopping Grand Plaisir</p>
+        <p>Chemin départemental 161</p>
+        <p>78370 Plaisir</p>
+        <p className="text-red-600 font-bold mt-4">Commande à retourner avant le : 08/11/2024</p>
+      </CardHeader>
+      <CardContent>
+        <form onSubmit={handleSubmit}>
+          <div className="space-y-4">
+            <Input
+              name="companyName"
+              placeholder="Raison sociale"
+              value={clientInfo.companyName}
+              onChange={handleClientInfoChange}
+            />
+            <Input
+              name="contactName"
+              placeholder="Nom du contact"
+              value={clientInfo.contactName}
+              onChange={handleClientInfoChange}
+              required
+            />
+            <Input
+              name="address"
+              placeholder="Adresse"
+              value={clientInfo.address}
+              onChange={handleClientInfoChange}
+              required
+            />
